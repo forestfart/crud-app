@@ -6,7 +6,7 @@ goto end
 
 :runChrome
 start chrome "http://localhost:8080/crud-app/v1/task/getTasks"
-if "%ERRORLEVEL%" == "0" goto if "%ERRORLEVEL%" == "0" goto allGood
+if "%ERRORLEVEL%" == "0" goto allGood
 echo.
 echo Unable to start Chrome browser.
 goto end
