@@ -10,9 +10,11 @@ import java.util.List;
 
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
+@CrossOrigin(origins = "*") //allow any server, see:  https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
 @RestController
 @RequestMapping("/v1/task")
 public class TaskController {
+
     private Long taskId = (long)1;
     @Autowired
     private DbService service;
