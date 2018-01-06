@@ -1,7 +1,7 @@
 call runCrudApp.bat
 if "%ERRORLEVEL%" == "0" goto runChrome
 echo.
-echo runCrudApp.bat has some errors, go to runCrudApp,bat for more information.
+echo runCrudApp.bat has some errors, go to runCrudApp.bat for more information.
 goto end
 
 :runChrome
