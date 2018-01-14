@@ -10,4 +10,8 @@ public class Mail {
     private String mailCc;
     private String subject;
     private String message;
+
+    public Mail(String mailTo, String subject, String message) {
+        this(mailTo, null, subject, message);
+    }
 }
