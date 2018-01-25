@@ -18,13 +18,19 @@ public class TrelloMapperTestSuite {
         List<TrelloBoardDto> trelloBoardDtosStub = new ArrayList<>();
         trelloBoardDtosStub.add(new TrelloBoardDto("1", "test board dtos", trelloListDtosStub));
 
+        List<TrelloBoardDto> emptyTrelloBoardDtoStub = new ArrayList<>();
+
         // When
         List<TrelloBoard> fetchedTrelloBoards = trelloMapper.mapToBoard(trelloBoardDtosStub);
+
+        List<TrelloBoard> fetchedEmptyTrelloBoards = trelloMapper.mapToBoard(emptyTrelloBoardDtoStub);
 
         //Then
         assertEquals(1,fetchedTrelloBoards.size());
         assertEquals("test board dtos", fetchedTrelloBoards.get(0).getName());
         assertEquals("test list dtos", fetchedTrelloBoards.get(0).getLists().get(0).getName());
+
+        assertEquals(0, fetchedEmptyTrelloBoards.size());
     }
 
     @Test
@@ -35,13 +41,19 @@ public class TrelloMapperTestSuite {
         List<TrelloBoard> trelloBoardsStub = new ArrayList<>();
         trelloBoardsStub.add(new TrelloBoard("1", "test boards", trelloListsStub));
 
+        List<TrelloBoard> emptyTrelloBoardStub = new ArrayList<>();
+
         // When
         List<TrelloBoardDto> fetchedTrelloBoardDtos = trelloMapper.mapToBoardsDto(trelloBoardsStub);
+
+        List<TrelloBoardDto> fetchedEmptyTrelloBoardDtos = trelloMapper.mapToBoardsDto(emptyTrelloBoardStub);
 
         //Then
         assertEquals(1,fetchedTrelloBoardDtos.size());
         assertEquals("test boards", fetchedTrelloBoardDtos.get(0).getName());
         assertEquals("test lists", fetchedTrelloBoardDtos.get(0).getLists().get(0).getName());
+
+        assertEquals(0, fetchedEmptyTrelloBoardDtos.size());
     }
 
     @Test
