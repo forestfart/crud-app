@@ -12,8 +12,10 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.samePropertyValuesAs;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.when;
 
@@ -98,5 +100,13 @@ public class TrelloFacadeTest {
                 assertEquals(false, trelloListDto.isClosed());
             });
         });
+
+        // alternative method using Hamcrest
+        assertThat(trelloBoardDtos.get(0).getLists().get(0), hasProperty("id", equalTo("1")));
+        assertThat(trelloBoardDtos.get(0).getLists().get(0), hasProperty("name", equalTo("my_list")));
+
+        assertThat(trelloBoardDtos, samePropertyValuesAs(trelloBoards)); // <<-- nice one!
+
+        assertFalse(trelloBoardDtos.get(0).getLists().get(0).isClosed());
     }
 }

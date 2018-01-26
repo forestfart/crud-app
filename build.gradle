@@ -47,6 +47,9 @@ dependencies {
 	//mail
 	compile('org.springframework.boot:spring-boot-starter-mail:1.5.9.RELEASE')
 
+	// Json object transformer
+	compile('com.google.code.gson:gson:2.8.2')
+
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
