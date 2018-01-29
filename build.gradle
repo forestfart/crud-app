@@ -31,11 +31,11 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
 
 	// databases
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('mysql:mysql-connector-java') // local host
-	//compile('org.postgresql:postgresql') // heroku host
+	//compile('org.postgresql:postgresql') // remote heroku host
 
 	// Swagger
 	compile('io.springfox:springfox-swagger2:2.7.0')
@@ -50,6 +50,8 @@ dependencies {
 	// Json object transformer
 	compile('com.google.code.gson:gson:2.8.2')
 
+	// Actuator
+	compile('org.springframework.boot:spring-boot-starter-actuator')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
