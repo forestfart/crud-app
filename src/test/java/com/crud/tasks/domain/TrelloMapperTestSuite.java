@@ -11,7 +11,7 @@ public class TrelloMapperTestSuite {
     private TrelloMapper trelloMapper = new TrelloMapper();
 
     @Test
-    public void tstMapToBoard() throws Exception {
+    public void testMapToBoard() throws Exception {
         // Given
         List<TrelloListDto> trelloListDtosStub = new ArrayList<>();
         trelloListDtosStub.add(new TrelloListDto("1", "test list dtos", false));

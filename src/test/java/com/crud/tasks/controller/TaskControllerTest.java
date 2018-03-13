@@ -78,7 +78,7 @@ public class TaskControllerTest {
     }
 
     @Test
-    public void shouldGetTask ()throws Exception {
+    public void shouldGetTask () throws Exception {
         // Given
         Task task = new Task(1L, "test title", "test content");
         TaskDto taskDto = taskMapperNotAMock.mapToTaskDto(task);

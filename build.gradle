@@ -47,6 +47,8 @@ dependencies {
 	//mail
 	compile('org.springframework.boot:spring-boot-starter-mail:1.5.9.RELEASE')
 
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
 	// Json object transformer
 	compile('com.google.code.gson:gson:2.8.2')
 
