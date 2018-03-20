@@ -1,6 +1,7 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Mail;
+import com.crud.tasks.scheduler.EmailScheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class SimpleEmailService {
         LOGGER.info("Starting email preparation...");
         try {
             //SimpleMailMessage mailMessage = createMailMessage(mail);
-            MimeMessagePreparator mailMessage = createMimeMessage(mail);
-            javaMailSender.send(mailMessage);
+            MimeMessagePreparator mimeMailMessage = createMimeMessage(mail);
+            javaMailSender.send(mimeMailMessage);
             LOGGER.info("Email has been sent.");
         } catch (MailException e) {
             LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
@@ -39,7 +40,14 @@ public class SimpleEmailService {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setTo(mail.getMailTo());
             messageHelper.setSubject((mail.getSubject()));
-            messageHelper.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()), true);
+            switch (mail.getSubject()) {
+                case TrelloService.SUBJECT:
+                    messageHelper.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()), true);
+                    break;
+                case EmailScheduler.SUBJECT:
+                    messageHelper.setText(mailCreatorService.buildScheduledEmail(mail.getMessage()), true);
+                    break;
+            }
         };
     }
 
