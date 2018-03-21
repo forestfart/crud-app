@@ -34,7 +34,7 @@ dependencies {
 
 	// databases
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	//compile('mysql:mysql-connector-java') // local host
+	//compile('mysql:mysql-connector-java') // localhost
 	compile('org.postgresql:postgresql') // remote heroku host
 
 	// Swagger
