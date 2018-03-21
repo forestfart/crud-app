@@ -45,7 +45,7 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
 
 	//mail
-	compile('org.springframework.boot:spring-boot-starter-mail:1.5.9.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-mail')
 
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
