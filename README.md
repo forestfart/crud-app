@@ -1,3 +1,5 @@
 ## Java bootcamp project repository
 
-This app is connected with https://forestfart.github.io/ - check it out how it works!
+This application is deployed at https://forestfart-crud-app.herokuapp.com/v1/tasks
+Front end you can find at https://forestfart.github.io/ 
+                                                - feel free to play with it!
